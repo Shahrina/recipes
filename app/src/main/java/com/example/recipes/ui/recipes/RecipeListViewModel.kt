@@ -1,4 +1,4 @@
-package com.example.recipes.ui.theme.recipes
+package com.example.recipes.ui.recipes
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -17,7 +17,7 @@ class RecipeListViewModel(private val repository: RecipeRepository) : ViewModel(
         fetchRecipes()
     }
 
-    private fun fetchRecipes() {
+    fun fetchRecipes() {
         viewModelScope.launch {
             uiState = uiState.copy(isLoading = true)
 
