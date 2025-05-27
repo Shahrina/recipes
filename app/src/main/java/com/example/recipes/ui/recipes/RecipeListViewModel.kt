@@ -31,7 +31,7 @@ class RecipeListViewModel(private val repository: RecipeRepository) : ViewModel(
             } catch (e: Exception) {
                 uiState = uiState.copy(
                     isLoading = false,
-                    errorMessage = e.localizedMessage ?: "Unknown error occurred"
+                    errorMessage = e.localizedMessage ?: "Failed to load recipes"
                 )
             }
         }
