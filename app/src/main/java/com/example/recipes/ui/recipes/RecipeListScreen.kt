@@ -1,5 +1,6 @@
 package com.example.recipes.ui.recipes
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
@@ -21,9 +22,14 @@ fun RecipeListScreen() {
 
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = { Text("Recipes") }
-            )
+            Column {
+                TopAppBar(title = { Text("Recipes") })
+                RecipeSearchBar(
+                    query = uiState.query,
+                    onQueryChanged = { viewModel.searchRecipes(it) },
+                    onClear = { viewModel.clearSearch() }
+                )
+            }
         }
     ) { innerPadding ->
         RecipeListContent(
