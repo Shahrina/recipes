@@ -36,6 +36,7 @@ fun RecipeListScreen() {
             recipes = uiState.recipes,
             isLoading = uiState.isLoading,
             errorMessage = uiState.errorMessage,
+            query = uiState.query,
             onRetry = { viewModel.fetchRecipes() },
             modifier = Modifier.padding(innerPadding)
         )

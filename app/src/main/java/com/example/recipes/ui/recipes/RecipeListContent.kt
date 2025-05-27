@@ -13,6 +13,7 @@ fun RecipeListContent(
     recipes: List<Recipe>,
     isLoading: Boolean,
     errorMessage: String?,
+    query: String,
     onRetry: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -20,6 +21,7 @@ fun RecipeListContent(
         when {
             isLoading -> LoadingIndicator()
             errorMessage != null -> ErrorMessage(message = errorMessage, onRetry = onRetry)
+            recipes.isEmpty() -> EmptyStateMessage(query)
             else -> LazyColumn(
                 modifier = Modifier.fillMaxSize()
             ) {
