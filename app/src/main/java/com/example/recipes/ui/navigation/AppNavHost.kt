@@ -18,7 +18,7 @@ fun AppNavHost() {
         composable("recipeDetail/{recipeId}") { backStackEntry ->
             val recipeId = backStackEntry.arguments?.getString("recipeId")?.toIntOrNull()
             if (recipeId != null) {
-                RecipeDetailScreen(recipeId)
+                RecipeDetailScreen(recipeId = recipeId, navController = navController)
             }
         }
     }
