@@ -20,8 +20,11 @@ import coil.compose.AsyncImage
 import com.example.recipes.data.model.Recipe
 
 @Composable
-fun RecipeListItem(recipe: Recipe) {
+fun RecipeListItem(
+    recipe: Recipe, onClick: () -> Unit
+) {
     Card(
+        onClick = onClick,
         modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp),

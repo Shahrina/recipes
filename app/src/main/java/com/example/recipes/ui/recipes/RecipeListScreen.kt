@@ -9,12 +9,13 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavController
 import com.example.recipes.data.remote.RemoteDataSource
 import com.example.recipes.data.repository.RecipeRepository
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun RecipeListScreen() {
+fun RecipeListScreen(navController: NavController) {
     val viewModel = remember {
         RecipeListViewModel(RecipeRepository(RemoteDataSource.api))
     }
@@ -34,6 +35,9 @@ fun RecipeListScreen() {
     ) { innerPadding ->
         RecipeListContent(
             recipes = uiState.recipes,
+            onRecipeClick = { recipe ->
+                navController.navigate("recipeDetail/${recipe.id}")
+            },
             isLoading = uiState.isLoading,
             errorMessage = uiState.errorMessage,
             query = uiState.query,

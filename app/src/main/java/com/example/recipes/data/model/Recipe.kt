@@ -6,10 +6,10 @@ data class Recipe(
     val id: Int,
     val title: String,
     @Json(name = "photoUrl") val image: String?,
-    val course: String,
-    val cuisine: String,
+    val course: String?,
+    val cuisine: String?,
     val ingredients: String?,
-    val instructions: String?,
+    val directions: String?,
     val servings: Int?,
     val prepTime: String?,
     val cookTime: String?

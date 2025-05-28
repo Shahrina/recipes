@@ -11,6 +11,7 @@ import com.example.recipes.data.model.Recipe
 @Composable
 fun RecipeListContent(
     recipes: List<Recipe>,
+    onRecipeClick: (Recipe) -> Unit,
     isLoading: Boolean,
     errorMessage: String?,
     query: String,
@@ -26,7 +27,7 @@ fun RecipeListContent(
                 modifier = Modifier.fillMaxSize()
             ) {
                 items(recipes) { recipe ->
-                    RecipeListItem(recipe = recipe)
+                    RecipeListItem(recipe = recipe, onClick = { onRecipeClick(recipe) })
                 }
             }
         }
