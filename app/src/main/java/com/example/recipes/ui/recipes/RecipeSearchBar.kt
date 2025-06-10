@@ -29,7 +29,7 @@ fun RecipeSearchBar(
             .padding(8.dp),
         singleLine = true,
         leadingIcon = {
-            Icon(Icons.Default.Search, contentDescription = null)
+            Icon(Icons.Default.Search, contentDescription = "Search icon")
         },
         trailingIcon = {
             if (query.isNotEmpty()) {
